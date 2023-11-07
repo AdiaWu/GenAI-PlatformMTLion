@@ -89,4 +89,74 @@ cd GenAI-Platform
 python app.py .
 ```
 
+## API Interface Introduction
 
+| Category      | API Route                | Method | Function Description                                   |
+|---------------|--------------------------|--------|--------------------------------------------------------|
+| **Chatbot**   | `/mpcbot/sendchat_gpt4`  | POST   | Interaction with the GPT-4 version of chatbot          |
+| **GPT**       | `api/getMessageList`     | GET    | Retrieve message list                                   |
+|               | `api/getMsgGroupList`    | GET    | Retrieve message group list                             |
+|               | `api/delMsgGroupList`    | POST   | Delete message group                                    |
+|               | `api/sendStremChat`      | POST   | Send streaming chat content                             |
+| **UserRate**  | `api/userRate`           | POST   | User rating                                             |
+|               | `api/delMessages`        | POST   | Delete messages by code                                 |
+|               | `api/shareMessages`      | POST   | Share messages                                          |
+|               | `api/getShareMessages`   | POST   | Retrieve shared messages                                |
+| **User**      | `api/userLogin`          | POST   | User login                                              |
+|               | `api/checkLogin`         | GET    | Check login status                                      |
+|               | `api/register`           | POST   | User registration                                       |
+|               | `api/loginOut`           | GET    | User logout                                             |
+|               | `api/sendVerifyCode`     | POST   | Send verification code                                  |
+|               | `api/sendEmailCode`      | POST   | Send email verification code                            |
+|               | `api/getCaptcha`         | GET    | Get captcha image                                       |
+|               | `api/testVerifyCode`     | POST   | Verify verification code                                |
+|               | `api/modifyPassword`     | POST   | Modify password                                         |
+| **Pay**       | `api/pay/cardInfo`       | GET    | Query payment card information                          |
+|               | `api/pay/orderCheck`     | GET    | Check order                                             |
+|               | `api/pay/account`        | GET    | Query user account                                      |
+|               | `api/pay/callback`       | POST   | Payment success callback                                |
+
+## Project Directory Structure
+
+Below is the main directory structure of `GenAI-Platform` in `genaipf` and their function descriptions:
+
+- **conf**: Contains various configuration files of the project, like server port, database connections, etc.
+- **constant**: Stores constant definitions used in the project, such as error codes, message constants, etc.
+- **controller**: Responsible for handling API requests, interactions with the front end, and returning responses. API interface definitions like `sendchat_gpt4` and `userLogin` are defined here.
+- **dispatcher**: In charge of API dispatching logic, like routing specific requests to the appropriate controller or handler.
+- **exception**: This directory contains custom exception handling logic and definitions of custom exception classes.
+- **interfaces**: Defines interfaces for interactions with external systems or other project modules.
+- **middlewares**: Middleware for processing API requests and responses. They can perform tasks like authentication, logging, etc., as pre-processing and post-processing.
+- **routers**: Defines all API routes, ensuring each request is correctly directed to the appropriate controller.
+- **services**: Contains the core business logic of the project and the code for interacting with the database.
+- **static**: For storing static resources of the project like CSS, JavaScript files, and images.
+- **utils**: Provides various utilities and helper functions, such as date conversion, string manipulation, etc.
+
+## Technology Stack Introduction
+
+Below is the main technology stack of `GenAI-Platform` and its role in the project:
+
+- **sanic (23.3.0)**: An efficient, lightweight Web server framework that supports asynchronous request processing, providing the main Web services for the project.
+- **qdrant-client (1.4.0)**: A vector database client for efficiently storing and retrieving vector data.
+- **openai (0.27.4)**: OpenAI's Python client for calling models like GPT for intelligent language response capabilities.
+- **langchain (0.0.314)**: A tool linking language models to project functionalities, supporting the language processing part of the project.
+- **pymysql (1.1.0)**: A Python client for MySQL databases for data storage and retrieval.
+- **redis (3.5.3)**: A high-performance key-value store for caching, session management, etc.
+- **web3 (6.2.0)**: A Python client for the Ethereum blockchain, for implementing interactions with the blockchain.
+- **aiohttp (3.8.4)**: An asynchronous HTTP client/server framework for handling asynchronous network requests.
+- **APScheduler (3.10.1)**: A job scheduling library for periodically running certain snippets of code or scheduled tasks.
+
+The rest of the libraries and tools provide various auxiliary functions and enhance performance, ensuring the project runs efficiently and stably.
+
+## License Information
+
+This project uses the `Apache 2.0` license, which means you are free to use, modify, and distribute the code, but you must give proper attribution to the original code.
+
+## Contact Information and Community
+
+We value the community's feedback and suggestions.
+
+- **GitHub Community**: If you have any questions, suggestions, or issues, feel free to ask or leave a message in the GitHub community.
+- **Email**: For further support or special requests, you can directly email: [contact@mountainlion.ai](mailto:contact@mountainlion.ai)
+
+We will respond promptly and provide assistance.
